@@ -1,9 +1,16 @@
-import React, { type SyntheticEvent, useState, useRef } from "react";
+import React, {
+  type SyntheticEvent,
+  useState,
+  useRef,
+  LegacyRef,
+  useEffect,
+} from "react";
 import styles from "./Bitblocks.module.css";
 import Image from "next/image";
 import { type Ordinal } from "queries/types";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import nsfw from "nsfw_blocks.json";
 
 // gsap.registerPlugin(useGSAP);
 
@@ -71,12 +78,25 @@ const BitblocksCell = ({
   });
   // console.log("Hover Image:", url)
 
+  useEffect(() => {
+    if (props.name) {
+      const isNsfw = nsfw.nsfw.find(
+        (el) => el == props.name.replace("Bitblock #", ""),
+      );
+      if (isNsfw) {
+        setUrl("/NSFW.webp")
+      }
+    }
+  }, [props.name]);
+
   return (
     <div ref={container} id={styles.main}>
       <div id={styles.container}>
         <div id={styles.image}>
           <Image
+            className=" opacity-0 transition-opacity duration-[2s]"
             ref={image}
+            // onLoad={(image) => image.classList.remove("opacity-0")}
             onMouseEnter={(event) => {
               handleMouseEnterEvent(event);
               // mouseEnterAnimation()
@@ -87,8 +107,8 @@ const BitblocksCell = ({
             }}
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             onClick={onClickImage}
-            height={250} //changeImg ? 300 : threshold}
-            width={250} //changeImg ? 300 : threshold}
+            height={threshold} //changeImg ? 300 : threshold}
+            width={threshold} //changeImg ? 300 : threshold}
             src={changeImg ? url : props.image_url}
             alt={props.name + "/" + i}
           />

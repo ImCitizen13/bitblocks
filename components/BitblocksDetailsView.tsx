@@ -12,10 +12,15 @@ const BitblocksDetailsView = ({ stats, info }: BitblocksDetails) => {
   return (
     <div>
       <p>{info?.name}</p>
-      <p>{stats?.floorPrice}</p>
+      <p>
+        Floor Price:
+        <span>{" " + stats?.floorPrice}</span>
+      </p>
       <div>
-        <p>Supply: </p>
-        <p>{stats?.supply}</p>
+        <p>
+          Supply:
+          <span>{" "+ stats?.supply}</span>
+        </p>
       </div>
     </div>
   );
