@@ -1,4 +1,3 @@
-import { toPng } from "html-to-image";
 import { useRef } from "react";
 
 export default function BitBlocksVideo({ bitblock }: { bitblock: string }) {

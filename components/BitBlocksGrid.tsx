@@ -1,4 +1,4 @@
-import React, { LegacyRef, Ref, useRef } from "react";
+import React, { useRef } from "react";
 import BitblocksCell, { type BitblockCellProps } from "./BitblockCell";
 import styles from "./BitblocksGrid.module.css";
 import useElementRectSize, { type Dimensions } from "hooks/useElementRectSize";

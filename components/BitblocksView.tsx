@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./BitblocksView.module.css";
 import { type BitblockCellProps } from "./BitblockCell";
 import {
-  type MagicEdenData,
   type CollectionInfo,
   type CollectionStats,
-  type MagicEdenToken,
-  getOrdinalsFromMagicEdenTokens,
   magicEdenToBitBlocksCellProps1,
 } from "queries/services/MagicEden";
 import {
@@ -15,9 +12,6 @@ import {
 } from "queries/UseGetCollectionStats";
 import BitblocksDetailsView from "./BitblocksDetailsView";
 import BitBlocksGrid from "./BitBlocksGrid";
-import testTokens from "./bitblocks_test_blocks.json";
-import testOrigiTokens from "./bitblocks_test_original.json";
-import { type Ordinal } from "queries/types";
 import { useGetMultiPageWalletAssets } from "queries/UseAllWalletAssets";
 import { useInView } from "react-intersection-observer";
 
@@ -25,7 +19,7 @@ const BitblocksView = () => {
   const [bitblocks, setBitblocks] = useState<BitblockCellProps[]>();
   const [stats, setStats] = useState<CollectionStats>();
   const [info, setInfo] = useState<CollectionInfo>();
-  const [hasMore, setHasMore] = useState<boolean>(false);
+  // const [hasMore, setHasMore] = useState<boolean>(false);
   const [showBitBlocks, setShowBitBlocks] = useState<boolean>(false);
 
   const COLLECTION_SYMBOL = "bit-blocks";
@@ -76,13 +70,13 @@ const BitblocksView = () => {
         magicEdenToBitBlocksCellProps1(allTokens);
       // Set Bitblocks
       setBitblocks(bitblocksData);
-      if (hasNextPage) {
-        // To Fetch all pages before displaying the list/grid
-        //fetchNextPage();
-        setHasMore(true);
-      } else {
-        setHasMore(false);
-      }
+      // if (hasNextPage) {
+      //   // To Fetch all pages before displaying the list/grid
+      //   //fetchNextPage();
+      //   setHasMore(true);
+      // } else {
+      //   setHasMore(false);
+      // }
     }
   }, [infiniteData]);
 

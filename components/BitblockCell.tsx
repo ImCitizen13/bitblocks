@@ -2,7 +2,6 @@ import React, {
   type SyntheticEvent,
   useState,
   useRef,
-  LegacyRef,
   useEffect,
 } from "react";
 import styles from "./Bitblocks.module.css";
@@ -31,12 +30,6 @@ const BitblocksCell = ({
   threshold: number;
   i: number;
 }) => {
-  const [enterTimeout, setEnterTimeout] = useState<
-    gsap.core.Timeline | undefined
-  >(undefined);
-  const [leaveTimeout, setLeaveTimeout] = useState<
-    gsap.core.Timeline | undefined
-  >(undefined);
   const [changeImg, setChangeImg] = useState(false);
   const [url, setUrl] = useState<string>(
     // props.originalInscription?.image_url ?? ""
@@ -69,14 +62,6 @@ const BitblocksCell = ({
       gsap.to(image.current, { rotation: "+=360" });
     }
   });
-  // console.log("Original Image:", props.image_url)
-  const mouseEnterAnimation = contextSafe(() => {
-    gsap.to(image.current, { rotation: "+=360" });
-  });
-  const mouseLeaveAnimation = contextSafe(() => {
-    gsap.to(image.current, { rotation: "-=360" });
-  });
-  // console.log("Hover Image:", url)
 
   useEffect(() => {
     if (props.name) {
