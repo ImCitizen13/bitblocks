@@ -7,11 +7,7 @@ export async function GetInfiniteWalletAssetsMagicEden(
 ): Promise<MagicEdenData> {
   const axiosClient = axios.create({
     baseURL: `https://api-mainnet.magiceden.io/v2/ord/btc/tokens?collectionSymbol=${collectionSymbol}&showAll=true&limit=100&offset=${offset}&sortBy=priceAsc`,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    }
+    
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-return
