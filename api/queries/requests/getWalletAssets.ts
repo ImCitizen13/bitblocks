@@ -1,5 +1,5 @@
 import axios from "axios";
-import { type MagicEdenData } from "queries/services/MagicEden";
+import { type MagicEdenData } from "api/queries/services/MagicEden";
 
 export async function GetInfiniteWalletAssetsMagicEden(
   collectionSymbol: string,

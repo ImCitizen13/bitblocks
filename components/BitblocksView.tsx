@@ -5,14 +5,14 @@ import {
   type CollectionInfo,
   type CollectionStats,
   magicEdenToBitBlocksCellProps1,
-} from "queries/services/MagicEden";
+} from "api/queries/services/MagicEden";
 import {
   UseGetCollectionInfo,
   UseGetCollectionStats,
-} from "queries/UseGetCollectionStats";
+} from "api/queries/UseGetCollectionStats";
 import BitblocksDetailsView from "./BitblocksDetailsView";
 import BitBlocksGrid from "./BitBlocksGrid";
-import { useGetMultiPageWalletAssets } from "queries/UseAllWalletAssets";
+import { useGetMultiPageWalletAssets } from "api/queries/UseAllWalletAssets";
 import { useInView } from "react-intersection-observer";
 
 const BitblocksView = () => {

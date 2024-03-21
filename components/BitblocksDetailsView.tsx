@@ -1,7 +1,7 @@
 import {
   type CollectionInfo,
   type CollectionStats,
-} from "queries/services/MagicEden";
+} from "api/queries/services/MagicEden";
 
 export type BitblocksDetails = {
   stats: CollectionStats | undefined;

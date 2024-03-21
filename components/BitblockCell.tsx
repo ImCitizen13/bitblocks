@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import styles from "./Bitblocks.module.css";
 import Image from "next/image";
-import { type Ordinal } from "queries/types";
+import { type Ordinal } from "api/queries/types";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import nsfw from "nsfw_blocks.json";
